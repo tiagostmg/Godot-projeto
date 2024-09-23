@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://sigjrgjpjxxr"]
+
+[ext_resource type="Script" path="res://cenas/vitoria.gd" id="1_7r6wt"]
+[ext_resource type="FontFile" uid="uid://df8nm4kyt2l76" path="res://fonts/atari-classic-font/AtariClassic-gry3.ttf" id="2_13olo"]
+
+[node name="Vitoria" type="Node2D"]
+script = ExtResource("1_7r6wt")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 68.0
+offset_right = 217.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("2_13olo")
+text = "PARABÉNS
+VOCÊ GANHOU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="botaoRecomecar" type="Button" parent="."]
+offset_left = 54.0
+offset_top = 145.0
+offset_right = 206.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("2_13olo")
+text = "Recomeçar"
+
+[connection signal="button_down" from="botaoRecomecar" to="." method="_on_botao_recomecar_button_down"]

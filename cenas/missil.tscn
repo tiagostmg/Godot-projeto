@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlgmu2llj1jp3"]
+
+[ext_resource type="Script" path="res://cenas/missil.gd" id="1_urvsy"]
+[ext_resource type="Texture2D" uid="uid://cp4w0i82bf18a" path="res://Sprites/disparoEnemigo.png" id="2_05u3q"]
+[ext_resource type="Texture2D" uid="uid://duo2p06g0ie30" path="res://Sprites/amaterasu/amaterasu_nzc_effect_spritesheet_by_duannian_dh0q83e.png" id="3_cuf8j"]
+[ext_resource type="Texture2D" uid="uid://f8ki1bmd8mn5" path="res://Sprites/itachi1/sharingan/3d8fd0bf3bb041dee2ceff76681fe1b8b43amN0B8RN2Y884-2.png" id="4_8qte6"]
+[ext_resource type="Texture2D" uid="uid://bryug2lif4vnu" path="res://Sprites/itachi1/sharingan/3d8fd0bf3bb041dee2ceff76681fe1b8b43amN0B8RN2Y884-3.png" id="5_s3r2p"]
+[ext_resource type="Texture2D" uid="uid://deumxafw80duw" path="res://Sprites/itachi1/sharingan/3d8fd0bf3bb041dee2ceff76681fe1b8b43amN0B8RN2Y884-4.png" id="6_846rs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qlx1"]
+size = Vector2(3, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6orh"]
+atlas = ExtResource("3_cuf8j")
+region = Rect2(1112, 3195, 1112, 1065)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h6ss"]
+atlas = ExtResource("3_cuf8j")
+region = Rect2(2224, 3195, 1112, 1065)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dij4e"]
+atlas = ExtResource("3_cuf8j")
+region = Rect2(0, 4260, 1112, 1065)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ep1f"]
+atlas = ExtResource("3_cuf8j")
+region = Rect2(1112, 4260, 1112, 1065)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ttw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6orh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h6ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dij4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ep1f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8qte6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s3r2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_846rs")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 11.0
+}]
+
+[node name="Missil" type="Area2D" groups=["misseis"]]
+script = ExtResource("1_urvsy")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_05u3q")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7qlx1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0234375, 0.0234375)
+sprite_frames = SubResource("SpriteFrames_8ttw2")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.84819
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

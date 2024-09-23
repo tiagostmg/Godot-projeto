@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg1dcynf5fjvr"]
+
+[ext_resource type="Script" path="res://cenas/laser.gd" id="1_kimhf"]
+[ext_resource type="Texture2D" uid="uid://q8m36hfjhqdj" path="res://Sprites/disparoJugador.png" id="1_q5hx8"]
+[ext_resource type="Texture2D" uid="uid://c7kkw7aetidl2" path="res://Sprites/fireball/FB500-1.png" id="3_wdtj8"]
+[ext_resource type="Texture2D" uid="uid://c6xjo06ke8fw5" path="res://Sprites/fireball/FB500-2.png" id="4_vgoro"]
+[ext_resource type="Texture2D" uid="uid://bv0tjpg0f0w4i" path="res://Sprites/fireball/FB500-3.png" id="5_huobn"]
+[ext_resource type="Texture2D" uid="uid://c8y0rddl4pcw7" path="res://Sprites/fireball/FB500-4.png" id="6_0iwc1"]
+[ext_resource type="Texture2D" uid="uid://cuttvreexj36k" path="res://Sprites/fireball/FB500-5.png" id="7_4ucpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iiti"]
+size = Vector2(2.61788, 4.94814)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddma1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wdtj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vgoro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_huobn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0iwc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4ucpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vgoro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_huobn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0iwc1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_kimhf")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_q5hx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.763976, 1.01048)
+shape = SubResource("RectangleShape2D_7iiti")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.018, 0.017947)
+sprite_frames = SubResource("SpriteFrames_ddma1")
+autoplay = "default"
+frame_progress = 0.583681
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

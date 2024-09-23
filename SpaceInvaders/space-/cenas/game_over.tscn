@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjnmfrr4nopxg"]
+
+[ext_resource type="FontFile" uid="uid://df8nm4kyt2l76" path="res://fonts/atari-classic-font/AtariClassic-gry3.ttf" id="1_pegcw"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 164.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("1_pegcw")
+text = "GAME
+OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 95.0
+offset_top = 152.0
+offset_right = 167.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("1_pegcw")
+theme_override_font_sizes/font_size = 8
+text = "REINICIAR"
+horizontal_alignment = 1
+vertical_alignment = 1

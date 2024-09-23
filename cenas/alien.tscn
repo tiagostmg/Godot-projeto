@@ -1,0 +1,212 @@
+[gd_scene load_steps=29 format=3 uid="uid://bqhfffenmsqry"]
+
+[ext_resource type="Script" path="res://cenas/alien.gd" id="1_aovyp"]
+[ext_resource type="Texture2D" uid="uid://cvs632lveu4e1" path="res://Sprites/alien1.png" id="1_invhr"]
+[ext_resource type="AudioStream" uid="uid://c160pduwbyway" path="res://sfx/classic_hurt.mp3" id="3_4hkgg"]
+[ext_resource type="Texture2D" uid="uid://b75dcnf2w5jqk" path="res://Sprites/itachi1/d4438938b2bc4e2edca570b6defeacebNUnDHAIEKT2ETCBV-0.png" id="4_x6oql"]
+[ext_resource type="Texture2D" uid="uid://evyxhpdpxtd" path="res://Sprites/itachi1/d4438938b2bc4e2edca570b6defeacebNUnDHAIEKT2ETCBV-1.png" id="5_jdga2"]
+[ext_resource type="Texture2D" uid="uid://xlylwq4eoumb" path="res://Sprites/itachi1/d4438938b2bc4e2edca570b6defeacebNUnDHAIEKT2ETCBV-2.png" id="6_h3k3i"]
+[ext_resource type="Texture2D" uid="uid://01qivfdug8sy" path="res://Sprites/itachi1/d4438938b2bc4e2edca570b6defeacebNUnDHAIEKT2ETCBV-3.png" id="7_li2r0"]
+[ext_resource type="Texture2D" uid="uid://4p8p37owdyn7" path="res://Sprites/itachi1/d4438938b2bc4e2edca570b6defeacebNUnDHAIEKT2ETCBV-4.png" id="8_2q1g2"]
+[ext_resource type="Texture2D" uid="uid://c4j7wb50ujgk6" path="res://Sprites/sangue/1_10.png" id="9_xeyax"]
+[ext_resource type="Texture2D" uid="uid://cfvxoktpihq42" path="res://Sprites/sangue/1_11.png" id="10_7aoo5"]
+[ext_resource type="Texture2D" uid="uid://ceox52uq7n646" path="res://Sprites/sangue/1_12.png" id="11_a4xt8"]
+[ext_resource type="Texture2D" uid="uid://1ktkgptrwlgx" path="res://Sprites/sangue/1_13.png" id="12_gyno3"]
+[ext_resource type="Texture2D" uid="uid://d04xn8oe264li" path="res://Sprites/sangue/1_14.png" id="13_o0jip"]
+[ext_resource type="Texture2D" uid="uid://brogl572tt1fk" path="res://Sprites/sangue/1_15.png" id="14_oudnv"]
+[ext_resource type="Texture2D" uid="uid://dloe3yc7sd1h7" path="res://Sprites/sangue/1_16.png" id="15_g7a8w"]
+[ext_resource type="Texture2D" uid="uid://duvy5m017knr1" path="res://Sprites/sangue/1_17.png" id="16_c878s"]
+[ext_resource type="Texture2D" uid="uid://m4jjtfpt5byg" path="res://Sprites/sangue/1_18.png" id="17_kgfbr"]
+[ext_resource type="Texture2D" uid="uid://km44x0ofl6em" path="res://Sprites/sangue/1_19.png" id="18_hh3xt"]
+[ext_resource type="Texture2D" uid="uid://ca1rfdt2ec52c" path="res://Sprites/sangue/1_20.png" id="19_egbf7"]
+[ext_resource type="Texture2D" uid="uid://c57ft03aw21bs" path="res://Sprites/sangue/1_21.png" id="20_vtgju"]
+[ext_resource type="Texture2D" uid="uid://b18vox2g20rr" path="res://Sprites/sangue/1_22.png" id="21_a8hv8"]
+[ext_resource type="Texture2D" uid="uid://dkona5jv1n8ea" path="res://Sprites/sangue/1_23.png" id="22_6c6qo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3dob"]
+size = Vector2(10, 13)
+
+[sub_resource type="Animation" id="Animation_o77rw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6cdni"]
+resource_name = "destroy"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"elimination"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yswk1"]
+resource_name = "lives"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqxf1"]
+_data = {
+"RESET": SubResource("Animation_o77rw"),
+"destroy": SubResource("Animation_6cdni"),
+"lives": SubResource("Animation_yswk1")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v4a0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x6oql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jdga2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h3k3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_li2r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2q1g2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xeyax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7aoo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_a4xt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gyno3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o0jip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oudnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_g7a8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c878s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kgfbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hh3xt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_egbf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vtgju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_a8hv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_6c6qo")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"morte",
+"speed": 24.0
+}]
+
+[node name="alien" type="CharacterBody2D" groups=["aliens"]]
+script = ExtResource("1_aovyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_invhr")
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_s3dob")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iqxf1")
+}
+autoplay = "lives"
+
+[node name="Timermovimento" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="spawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4hkgg")
+volume_db = -21.817
+
+[node name="AlienSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_3v4a0")
+animation = &"morte"
+autoplay = "default"
+frame = 14
+frame_progress = 1.0
+
+[node name="TimerMorteAlien" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timermovimento" to="." method="_on_timermovimento_timeout"]
+[connection signal="timeout" from="TimerMorteAlien" to="." method="_on_timer_morte_alien_timeout"]

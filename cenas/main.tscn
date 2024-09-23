@@ -1,0 +1,212 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmf7jcefgk117"]
+
+[ext_resource type="Script" path="res://cenas/main.gd" id="1_gpalg"]
+[ext_resource type="PackedScene" uid="uid://70jkii4q8v6c" path="res://cenas/jogador.tscn" id="1_or13m"]
+[ext_resource type="PackedScene" uid="uid://b0xsa1tyjv7v4" path="res://cenas/groupAliens.tscn" id="3_ljr50"]
+[ext_resource type="FontFile" uid="uid://dh70sf3y1sscp" path="res://fonts/njnaruto.ttf" id="4_5bgne"]
+[ext_resource type="PackedScene" uid="uid://jlhelvxub1mw" path="res://cenas/Bloco.tscn" id="5_vh2nk"]
+[ext_resource type="Script" path="res://cenas/chao.gd" id="6_oesmq"]
+[ext_resource type="Script" path="res://cenas/area_game_over.gd" id="7_njwes"]
+[ext_resource type="FontFile" uid="uid://df8nm4kyt2l76" path="res://fonts/atari-classic-font/AtariClassic-gry3.ttf" id="8_pttqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8wna"]
+size = Vector2(255, 20)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gpalg")
+
+[node name="Jogador" parent="." instance=ExtResource("1_or13m")]
+
+[node name="groupAliens" parent="." instance=ExtResource("3_ljr50")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 5.0
+offset_bottom = 55.0
+grow_horizontal = 2
+
+[node name="TituloPontos" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.501961, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5bgne")
+text = "Pontos"
+horizontal_alignment = 1
+
+[node name="LabelPontos" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.501961, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5bgne")
+horizontal_alignment = 1
+
+[node name="bases" type="Node" parent="."]
+
+[node name="base" type="Node2D" parent="bases"]
+position = Vector2(47, 209)
+metadata/_edit_group_ = true
+
+[node name="Bloco" parent="bases/base" instance=ExtResource("5_vh2nk")]
+position = Vector2(-6, 3)
+
+[node name="Bloco3" parent="bases/base" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 4)
+
+[node name="Bloco5" parent="bases/base" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 4)
+
+[node name="Bloco6" parent="bases/base" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 0)
+
+[node name="Bloco7" parent="bases/base" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 0)
+
+[node name="Bloco9" parent="bases/base" instance=ExtResource("5_vh2nk")]
+position = Vector2(6, 3)
+
+[node name="base2" type="Node2D" parent="bases"]
+position = Vector2(77, 209)
+metadata/_edit_group_ = true
+
+[node name="Bloco" parent="bases/base2" instance=ExtResource("5_vh2nk")]
+position = Vector2(-6, 3)
+
+[node name="Bloco3" parent="bases/base2" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 4)
+
+[node name="Bloco5" parent="bases/base2" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 4)
+
+[node name="Bloco6" parent="bases/base2" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 0)
+
+[node name="Bloco7" parent="bases/base2" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 0)
+
+[node name="Bloco9" parent="bases/base2" instance=ExtResource("5_vh2nk")]
+position = Vector2(6, 3)
+
+[node name="base3" type="Node2D" parent="bases"]
+position = Vector2(107, 209)
+metadata/_edit_group_ = true
+
+[node name="Bloco" parent="bases/base3" instance=ExtResource("5_vh2nk")]
+position = Vector2(-6, 3)
+
+[node name="Bloco3" parent="bases/base3" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 4)
+
+[node name="Bloco5" parent="bases/base3" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 4)
+
+[node name="Bloco6" parent="bases/base3" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 0)
+
+[node name="Bloco7" parent="bases/base3" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 0)
+
+[node name="Bloco9" parent="bases/base3" instance=ExtResource("5_vh2nk")]
+position = Vector2(6, 3)
+
+[node name="base4" type="Node2D" parent="bases"]
+position = Vector2(138, 209)
+metadata/_edit_group_ = true
+
+[node name="Bloco" parent="bases/base4" instance=ExtResource("5_vh2nk")]
+position = Vector2(-6, 3)
+
+[node name="Bloco3" parent="bases/base4" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 4)
+
+[node name="Bloco5" parent="bases/base4" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 4)
+
+[node name="Bloco6" parent="bases/base4" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 0)
+
+[node name="Bloco7" parent="bases/base4" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 0)
+
+[node name="Bloco9" parent="bases/base4" instance=ExtResource("5_vh2nk")]
+position = Vector2(6, 3)
+
+[node name="base5" type="Node2D" parent="bases"]
+position = Vector2(169, 209)
+metadata/_edit_group_ = true
+
+[node name="Bloco" parent="bases/base5" instance=ExtResource("5_vh2nk")]
+position = Vector2(-6, 3)
+
+[node name="Bloco3" parent="bases/base5" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 4)
+
+[node name="Bloco5" parent="bases/base5" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 4)
+
+[node name="Bloco6" parent="bases/base5" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 0)
+
+[node name="Bloco7" parent="bases/base5" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 0)
+
+[node name="Bloco9" parent="bases/base5" instance=ExtResource("5_vh2nk")]
+position = Vector2(6, 3)
+
+[node name="base6" type="Node2D" parent="bases"]
+position = Vector2(201, 209)
+metadata/_edit_group_ = true
+
+[node name="Bloco" parent="bases/base6" instance=ExtResource("5_vh2nk")]
+position = Vector2(-6, 3)
+
+[node name="Bloco3" parent="bases/base6" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 4)
+
+[node name="Bloco5" parent="bases/base6" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 4)
+
+[node name="Bloco6" parent="bases/base6" instance=ExtResource("5_vh2nk")]
+position = Vector2(-2, 0)
+
+[node name="Bloco7" parent="bases/base6" instance=ExtResource("5_vh2nk")]
+position = Vector2(2, 0)
+
+[node name="Bloco9" parent="bases/base6" instance=ExtResource("5_vh2nk")]
+position = Vector2(6, 3)
+
+[node name="chao" type="Node" parent="."]
+script = ExtResource("6_oesmq")
+
+[node name="areaGameOver" type="Area2D" parent="."]
+position = Vector2(123, 272)
+script = ExtResource("7_njwes")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaGameOver"]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_y8wna")
+
+[node name="TempoJogo" type="Timer" parent="."]
+wait_time = 62.0
+one_shot = true
+autostart = true
+
+[node name="Loop1sec" type="Timer" parent="."]
+autostart = true
+
+[node name="Tempo" type="Label" parent="."]
+offset_top = 233.0
+offset_right = 40.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("8_pttqy")
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="area_entered" from="areaGameOver" to="areaGameOver" method="_on_area_entered"]
+[connection signal="timeout" from="TempoJogo" to="." method="_on_tempo_jogo_timeout"]
+[connection signal="timeout" from="Loop1sec" to="." method="_on_loop_1_sec_timeout"]

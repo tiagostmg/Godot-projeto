@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://jlhelvxub1mw"]
+
+[ext_resource type="Script" path="res://cenas/Bloco.gd" id="1_ghwn6"]
+[ext_resource type="Texture2D" uid="uid://dg6t8mgyp4khv" path="res://Sprites/bloque.png" id="2_js4xs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbt18"]
+size = Vector2(4, 4)
+
+[sub_resource type="Animation" id="Animation_hlqwi"]
+resource_name = "normal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lm1kp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_20hpv"]
+resource_name = "danificada"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5t422"]
+_data = {
+"RESET": SubResource("Animation_lm1kp"),
+"danificada": SubResource("Animation_20hpv"),
+"normal": SubResource("Animation_hlqwi")
+}
+
+[node name="Bloco" type="StaticBody2D" groups=["blocos"]]
+script = ExtResource("1_ghwn6")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_js4xs")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bbt18")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5t422")
+}

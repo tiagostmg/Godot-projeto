@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb0deullvqrxb"]
+
+[ext_resource type="Texture2D" uid="uid://cp4w0i82bf18a" path="res://Sprites/disparoEnemigo.png" id="1_oyf27"]
+[ext_resource type="Script" path="res://cenas/missel.gd" id="1_voc2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qlx1"]
+size = Vector2(3.375, 7)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_voc2t")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oyf27")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7qlx1")

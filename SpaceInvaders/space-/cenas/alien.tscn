@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqhfffenmsqry"]
+
+[ext_resource type="Script" path="res://cenas/alien.gd" id="1_aovyp"]
+[ext_resource type="Texture2D" uid="uid://cvs632lveu4e1" path="res://Sprites/alien1.png" id="1_invhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3dob"]
+size = Vector2(11, 8)
+
+[sub_resource type="Animation" id="Animation_o77rw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6cdni"]
+resource_name = "destroy"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"elimination"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yswk1"]
+resource_name = "lives"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqxf1"]
+_data = {
+"RESET": SubResource("Animation_o77rw"),
+"destroy": SubResource("Animation_6cdni"),
+"lives": SubResource("Animation_yswk1")
+}
+
+[node name="alien" type="CharacterBody2D" groups=["aliens"]]
+script = ExtResource("1_aovyp")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_invhr")
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s3dob")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iqxf1")
+}
+autoplay = "lives"
+
+[node name="Timermovimento" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="spawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, 8)
+
+[connection signal="timeout" from="Timermovimento" to="." method="_on_timermovimento_timeout"]

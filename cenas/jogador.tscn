@@ -1,0 +1,221 @@
+[gd_scene load_steps=31 format=3 uid="uid://70jkii4q8v6c"]
+
+[ext_resource type="Script" path="res://cenas/jogador.gd" id="1_ddipy"]
+[ext_resource type="Texture2D" uid="uid://dr46gm786s0f5" path="res://Sprites/jugador.png" id="2_k5mqf"]
+[ext_resource type="Texture2D" uid="uid://c4j7wb50ujgk6" path="res://Sprites/sangue/1_10.png" id="3_kqy66"]
+[ext_resource type="Texture2D" uid="uid://31maalrmcb4a" path="res://Sprites/1.png" id="4_52yyq"]
+[ext_resource type="Texture2D" uid="uid://cfvxoktpihq42" path="res://Sprites/sangue/1_11.png" id="4_rc8yu"]
+[ext_resource type="Texture2D" uid="uid://ceox52uq7n646" path="res://Sprites/sangue/1_12.png" id="5_1dxkj"]
+[ext_resource type="Texture2D" uid="uid://dtxats38edwry" path="res://Sprites/2.png" id="5_q8wr2"]
+[ext_resource type="Texture2D" uid="uid://1ktkgptrwlgx" path="res://Sprites/sangue/1_13.png" id="6_qa0dl"]
+[ext_resource type="Texture2D" uid="uid://dqe76iakkddxa" path="res://Sprites/3.png" id="6_sexwf"]
+[ext_resource type="Texture2D" uid="uid://bfty8r6uuehgt" path="res://Sprites/4.png" id="7_6pme8"]
+[ext_resource type="Texture2D" uid="uid://d04xn8oe264li" path="res://Sprites/sangue/1_14.png" id="7_wg1j6"]
+[ext_resource type="Texture2D" uid="uid://brogl572tt1fk" path="res://Sprites/sangue/1_15.png" id="8_ckfh4"]
+[ext_resource type="Texture2D" uid="uid://dfbceoitq8bo2" path="res://Sprites/5.png" id="8_g38ln"]
+[ext_resource type="Texture2D" uid="uid://dnk6u12f23hg0" path="res://Sprites/6.png" id="9_jh8mn"]
+[ext_resource type="Texture2D" uid="uid://dloe3yc7sd1h7" path="res://Sprites/sangue/1_16.png" id="9_p3v4a"]
+[ext_resource type="Texture2D" uid="uid://duvy5m017knr1" path="res://Sprites/sangue/1_17.png" id="10_r74nv"]
+[ext_resource type="Texture2D" uid="uid://m4jjtfpt5byg" path="res://Sprites/sangue/1_18.png" id="11_2pr2y"]
+[ext_resource type="Texture2D" uid="uid://km44x0ofl6em" path="res://Sprites/sangue/1_19.png" id="12_cfpx4"]
+[ext_resource type="Texture2D" uid="uid://ca1rfdt2ec52c" path="res://Sprites/sangue/1_20.png" id="13_fien7"]
+[ext_resource type="Texture2D" uid="uid://c57ft03aw21bs" path="res://Sprites/sangue/1_21.png" id="14_qja6f"]
+[ext_resource type="Texture2D" uid="uid://b18vox2g20rr" path="res://Sprites/sangue/1_22.png" id="15_komb0"]
+[ext_resource type="Texture2D" uid="uid://dkona5jv1n8ea" path="res://Sprites/sangue/1_23.png" id="16_pxh71"]
+[ext_resource type="AudioStream" uid="uid://vb68vh7sljyp" path="res://sfx/fireball-whoosh-2-179126.mp3" id="23_g08xq"]
+[ext_resource type="AudioStream" uid="uid://i68f86uh20ef" path="res://sfx/Voicy_Fireball jutsu sound effect(1).mp3" id="24_rk11l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwsur"]
+size = Vector2(10, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dvd1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kqy66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rc8yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1dxkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qa0dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wg1j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ckfh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p3v4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r74nv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2pr2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cfpx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fien7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qja6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_komb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pxh71")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"morte",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_52yyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q8wr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sexwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6pme8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g38ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jh8mn")
+}],
+"loop": true,
+"name": &"sasuke",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_m50js"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_v0ve3"]
+resource_name = "morte"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eliminado"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_regpb"]
+resource_name = "vivo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjsj6"]
+_data = {
+"RESET": SubResource("Animation_m50js"),
+"destruido": SubResource("Animation_v0ve3"),
+"vivo": SubResource("Animation_regpb")
+}
+
+[node name="Jogador" type="CharacterBody2D" groups=["tanque"]]
+position = Vector2(123, 233)
+script = ExtResource("1_ddipy")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_k5mqf")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_iwsur")
+
+[node name="pontodolaser" type="Marker2D" parent="."]
+position = Vector2(0, -6)
+
+[node name="timerDisparo" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_0dvd1")
+animation = &"morte"
+autoplay = "sasuke"
+frame = 14
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kjsj6")
+}
+autoplay = "vivo"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_g08xq")
+
+[node name="TimerMorte" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_rk11l")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
+[connection signal="timeout" from="TimerMorte" to="." method="_on_timer_morte_timeout"]

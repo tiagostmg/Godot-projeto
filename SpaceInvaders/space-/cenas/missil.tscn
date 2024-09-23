@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlgmu2llj1jp3"]
+
+[ext_resource type="Script" path="res://cenas/missel.gd" id="1_urvsy"]
+[ext_resource type="Texture2D" uid="uid://cp4w0i82bf18a" path="res://Sprites/disparoEnemigo.png" id="2_05u3q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qlx1"]
+size = Vector2(3, 7)
+
+[node name="Missil" type="Area2D"]
+script = ExtResource("1_urvsy")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_05u3q")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7qlx1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

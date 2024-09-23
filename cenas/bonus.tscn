@@ -1,0 +1,190 @@
+[gd_scene load_steps=28 format=3 uid="uid://cy1bno7m3s3n3"]
+
+[ext_resource type="Script" path="res://cenas/bonus.gd" id="1_lreyj"]
+[ext_resource type="Texture2D" uid="uid://cobf0j0s6n7u5" path="res://Sprites/bonus.png" id="2_kp3l2"]
+[ext_resource type="Texture2D" uid="uid://dc5rfdvj1ix24" path="res://Sprites/phobos_and_deimos_spriters_by_bjnkute0905_d87tu8p.png" id="3_2d3ae"]
+[ext_resource type="Texture2D" uid="uid://c4j7wb50ujgk6" path="res://Sprites/sangue/1_10.png" id="4_wgcdt"]
+[ext_resource type="Texture2D" uid="uid://cfvxoktpihq42" path="res://Sprites/sangue/1_11.png" id="5_2a542"]
+[ext_resource type="Texture2D" uid="uid://ceox52uq7n646" path="res://Sprites/sangue/1_12.png" id="6_sfmas"]
+[ext_resource type="Texture2D" uid="uid://1ktkgptrwlgx" path="res://Sprites/sangue/1_13.png" id="7_e2x5w"]
+[ext_resource type="Texture2D" uid="uid://d04xn8oe264li" path="res://Sprites/sangue/1_14.png" id="8_w3pnf"]
+[ext_resource type="Texture2D" uid="uid://brogl572tt1fk" path="res://Sprites/sangue/1_15.png" id="9_1wsp7"]
+[ext_resource type="Texture2D" uid="uid://dloe3yc7sd1h7" path="res://Sprites/sangue/1_16.png" id="10_pjnm1"]
+[ext_resource type="Texture2D" uid="uid://duvy5m017knr1" path="res://Sprites/sangue/1_17.png" id="11_vcrol"]
+[ext_resource type="Texture2D" uid="uid://m4jjtfpt5byg" path="res://Sprites/sangue/1_18.png" id="12_aq28v"]
+[ext_resource type="Texture2D" uid="uid://km44x0ofl6em" path="res://Sprites/sangue/1_19.png" id="13_bjubl"]
+[ext_resource type="Texture2D" uid="uid://ca1rfdt2ec52c" path="res://Sprites/sangue/1_20.png" id="14_k7ydq"]
+[ext_resource type="Texture2D" uid="uid://c57ft03aw21bs" path="res://Sprites/sangue/1_21.png" id="15_oflnx"]
+[ext_resource type="Texture2D" uid="uid://b18vox2g20rr" path="res://Sprites/sangue/1_22.png" id="16_b5bp3"]
+[ext_resource type="Texture2D" uid="uid://dkona5jv1n8ea" path="res://Sprites/sangue/1_23.png" id="17_0xoe5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhd77"]
+size = Vector2(16, 7)
+
+[sub_resource type="Animation" id="Animation_axe2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e8bk0"]
+resource_name = "destruido"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_b6tyx"]
+resource_name = "normal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wks2t"]
+_data = {
+"RESET": SubResource("Animation_axe2m"),
+"destruido": SubResource("Animation_e8bk0"),
+"normal": SubResource("Animation_b6tyx")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylp1a"]
+atlas = ExtResource("3_2d3ae")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvvk8"]
+atlas = ExtResource("3_2d3ae")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om4qs"]
+atlas = ExtResource("3_2d3ae")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f8ti"]
+atlas = ExtResource("3_2d3ae")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxtfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylp1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvvk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om4qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f8ti")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wgcdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2a542")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sfmas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e2x5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w3pnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1wsp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pjnm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vcrol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_aq28v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bjubl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_k7ydq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_oflnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_b5bp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0xoe5")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"morte",
+"speed": 24.0
+}]
+
+[node name="bonus" type="CharacterBody2D" groups=["bonus"]]
+position = Vector2(262, 55)
+script = ExtResource("1_lreyj")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lhd77")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_kp3l2")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wks2t")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.458333)
+sprite_frames = SubResource("SpriteFrames_qxtfw")
+autoplay = "default"
+frame_progress = 0.212922
+flip_h = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
